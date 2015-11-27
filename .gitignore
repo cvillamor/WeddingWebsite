@@ -1,0 +1,6 @@
+WeddingWebsite.v12.suo
+WeddingWebsite/bin/*
+WeddingWebsite/obj/*
+WeddingWebsite.Tests/bin/*
+WeddingWebsite.Tests/obj/*
+packages/
