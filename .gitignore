@@ -6,3 +6,6 @@ WeddingWebsite.Tests/obj/*
 packages/
 *.settings
 PrivateSettings.config
+ConnectionStrings.config
+Wedding.MySql.tt
+*.sql

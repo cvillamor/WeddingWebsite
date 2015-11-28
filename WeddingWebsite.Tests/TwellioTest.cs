@@ -1,7 +1,11 @@
-﻿using System.Configuration;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Configuration;
+using System.Linq;
 using Twilio;
 using WeddingWebsite.Models;
 using WeddingWebsite.Models.DataObjects;
+using WeddingWebsite.Models.DBConnectors;
 using Xunit;
 
 namespace WeddingWebsite.Tests
@@ -29,5 +33,22 @@ namespace WeddingWebsite.Tests
       var twilioMessage = twilio.SendMessage(message.NumberFrom, message.NumberTo, "Derp derp derpaderp", new string[] {});
       System.Console.WriteLine(twilioMessage.Sid); 
     }
+
+    [Fact]
+    public void DatabaseAccess()
+    {
+      try
+      {
+        using(var db = new WeddingDb())
+        {
+          var list = db.People.ToList();
+        }
+      }
+      catch (Exception ex)
+      {
+
+      }
+    }
+
   }
 }
