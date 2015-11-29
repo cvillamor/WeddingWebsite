@@ -222,6 +222,7 @@
     <Compile Include="Models\Enums\TwilioStatusEnums.cs" />
     <Compile Include="Models\Helpers\EnumHelper.cs" />
     <Compile Include="Models\IMessageProvider.cs" />
+    <Compile Include="Models\Repository\IRepository.cs" />
     <Compile Include="Models\TwilioMessageProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
