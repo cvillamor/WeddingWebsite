@@ -1,11 +1,12 @@
 ﻿using System;
 using LinqToDB.Mapping;
 using WeddingWebsite.Models.Enums;
+using WeddingWebsite.Models.DataModels;
 
 namespace WeddingWebsite.Models.DTO
 {
   [Table(Name="group")]
-  public class Group
+  public class Group 
   {
     [PrimaryKey, Identity]
     public int Id { get; set; }

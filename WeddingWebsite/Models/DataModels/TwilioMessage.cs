@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WeddingWebsite.Models.DataModels;
 
 namespace WeddingWebsite.Models.DTO
 {
   [Table(Name = "twilio_messaging")]
-  public class TwilioMessage
+  public class TwilioMessage 
   {
     [PrimaryKey, Identity]
     public int Id { get; set; }

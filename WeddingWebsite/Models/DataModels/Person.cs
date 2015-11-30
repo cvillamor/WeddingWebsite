@@ -1,6 +1,7 @@
 ﻿using System;
 using LinqToDB.Mapping;
 using WeddingWebsite.Models.Enums;
+using WeddingWebsite.Models.DataModels;
 
 namespace WeddingWebsite.Models.DTO
 {
@@ -33,5 +34,6 @@ namespace WeddingWebsite.Models.DTO
 
     [Column(Name = "email"), Nullable]
     public string Email { get; set; }
+
   }
 }

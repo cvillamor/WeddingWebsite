@@ -11,7 +11,7 @@ namespace WeddingWebsite.Models.Repository
   {
     void Delete(T entity);
     void Upsert(T entity);
-    IQueryable<T> Find(Expression<Func<T, bool>> predicate);
+    T Find(Expression<Func<T>> predicate);
     IQueryable<T> GetAll();
     T GetById();
   }

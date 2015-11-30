@@ -206,6 +206,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModels\IEntity.cs" />
     <Compile Include="Models\DataObjects\TwilioLogin.cs" />
     <Compile Include="Models\DataObjects\TwilioMessage.cs" />
     <Compile Include="Models\DataObjects\IMessage.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Models\Helpers\EnumHelper.cs" />
     <Compile Include="Models\IMessageProvider.cs" />
     <Compile Include="Models\Repository\IRepository.cs" />
+    <Compile Include="Models\Repository\Repository.cs" />
     <Compile Include="Models\TwilioMessageProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
