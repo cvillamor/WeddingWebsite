@@ -213,7 +213,7 @@
     <Compile Include="Models\DataModels\WeddingDb.cs" />
     <Compile Include="Models\DataModels\Group.cs" />
     <Compile Include="Models\DataModels\Person.cs" />
-    <Compile Include="Models\DataModels\TwilioMessage.cs" />
+    <Compile Include="Models\DataModels\TwilioMessaging.cs" />
     <Compile Include="Models\DataModels\Wedding.MySql1.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -289,6 +289,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
+    <Folder Include="Models\ExtensionMethods\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

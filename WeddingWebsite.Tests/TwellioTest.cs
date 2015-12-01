@@ -6,7 +6,11 @@ using Twilio;
 using WeddingWebsite.Models;
 using WeddingWebsite.Models.DataObjects;
 using WeddingWebsite.Models.DBConnectors;
+using WeddingWebsite.Models.Repository;
+using System.Linq.Expressions;
 using Xunit;
+using LinqToDB;
+using WeddingWebsite.Models.DTO;
 
 namespace WeddingWebsite.Tests
 {
@@ -41,7 +45,11 @@ namespace WeddingWebsite.Tests
       {
         using(var db = new WeddingDb())
         {
-          var list = db.People.ToList();
+          Repository<Group> repository = new Repository<Group>(db);
+          var results = repository.Find(m => m.Id == 1);
+
+
+          //var list = d
         }
       }
       catch (Exception ex)

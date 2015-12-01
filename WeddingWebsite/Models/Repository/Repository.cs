@@ -33,19 +33,14 @@ namespace WeddingWebsite.Models.Repository
       _dataConnection.InsertOrReplace(entity);
     }
 
-    public T Find(Expression<Func<T>> predicate)
+    public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
     {
-      return _dataConnection.Select(predicate);
+      return _dataConnection.GetTable<T>().Where(predicate).ToList();
     }
 
-    public IQueryable<T> GetAll()
+    public IEnumerable<T> GetAll()
     {
-      return null;//_dataConnection.Where()
-    }
-
-    public T GetById()
-    {
-      throw new NotImplementedException();
+      return _dataConnection.GetTable<T>().ToList();
     }
   }
 }

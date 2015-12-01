@@ -14,6 +14,6 @@ namespace WeddingWebsite.Models.DBConnectors
 
     public ITable<Person> People { get { return GetTable<Person>(); }}
     public ITable<Group> Group { get { return GetTable<Group>(); }}
-    public ITable<TwilioMessage> TwilioMessages { get { return GetTable<TwilioMessage>(); }}
+    public ITable<TwilioMessaging> TwilioMessages { get { return GetTable<TwilioMessaging>(); }}
   }
 }

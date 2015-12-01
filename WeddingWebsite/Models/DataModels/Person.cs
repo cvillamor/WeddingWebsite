@@ -6,7 +6,7 @@ using WeddingWebsite.Models.DataModels;
 namespace WeddingWebsite.Models.DTO
 {
   [Table(Name="person")]
-  public class Person
+  public class Person : IEntity
   {
     [PrimaryKey, Identity]
     public int Id { get; set; }

@@ -6,7 +6,7 @@ using WeddingWebsite.Models.DataModels;
 namespace WeddingWebsite.Models.DTO
 {
   [Table(Name="group")]
-  public class Group 
+  public class Group : IEntity
   {
     [PrimaryKey, Identity]
     public int Id { get; set; }

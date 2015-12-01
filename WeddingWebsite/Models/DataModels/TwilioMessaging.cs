@@ -8,7 +8,7 @@ using WeddingWebsite.Models.DataModels;
 namespace WeddingWebsite.Models.DTO
 {
   [Table(Name = "twilio_messaging")]
-  public class TwilioMessage 
+  public class TwilioMessaging : IEntity
   {
     [PrimaryKey, Identity]
     public int Id { get; set; }
