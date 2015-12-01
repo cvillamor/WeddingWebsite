@@ -25,8 +25,8 @@ namespace WeddingWebsite.Tests
       login.AuthToken = ConfigurationManager.AppSettings["AccountToken"];
 
       IMessage message = new TwilioMessage();
-      message.NumberFrom = ConfigurationManager.AppSettings["NumberFrom"];
-      message.NumberTo = ConfigurationManager.AppSettings["NumberTo"];
+      message.From = ConfigurationManager.AppSettings["NumberFrom"];
+      message.To = ConfigurationManager.AppSettings["NumberTo"];
       message.Message = "Derp derp derp";
       
 
@@ -35,7 +35,7 @@ namespace WeddingWebsite.Tests
       string AuthToken = login.AuthToken;
       var twilio = new TwilioRestClient(AccountSid, AuthToken);
 
-      var twilioMessage = twilio.SendMessage(message.NumberFrom, message.NumberTo, "Derp derp derpaderp", new string[] {});
+      var twilioMessage = twilio.SendMessage(message.From, message.To, "Derp derp derpaderp", new string[] {});
       System.Console.WriteLine(twilioMessage.Sid); 
     }
 

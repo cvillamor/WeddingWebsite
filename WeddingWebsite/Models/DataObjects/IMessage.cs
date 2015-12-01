@@ -8,8 +8,8 @@ namespace WeddingWebsite.Models
 {
   public interface IMessage
   {
-    string NumberTo { get; set; }
-    string NumberFrom { get; set; }
+    string To { get; set; }
+    string From { get; set; }
     string Message { get; set; }
   }
 }

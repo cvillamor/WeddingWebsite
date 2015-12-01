@@ -42,8 +42,8 @@ namespace WeddingWebsite.Models
     public bool SendMessage(IMessage message)
     {
       bool status = false;
-      var response = _twilioClient.SendMessage(message.NumberFrom,
-                                               message.NumberTo,
+      var response = _twilioClient.SendMessage(message.From,
+                                               message.To,
                                                message.Message,
                                                new string[] {});
 
