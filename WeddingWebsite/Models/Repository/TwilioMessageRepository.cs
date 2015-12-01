@@ -16,7 +16,7 @@ namespace WeddingWebsite.Models.Repository
     public bool MaxRequestsNotReached(string phoneNumber)
     {
       return this.Find(m => m.PhoneNumber == phoneNumber && 
-                            m.Date. > DateTime.Now.AddMinutes(-1)).Count() < 3;
+                            m.Date > DateTime.Now.AddMinutes(-1)).Count() < 3;
     }
   }
 }
