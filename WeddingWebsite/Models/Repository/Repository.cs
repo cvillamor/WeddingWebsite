@@ -12,13 +12,13 @@ namespace WeddingWebsite.Models.Repository
 {
   public class Repository<T> : IRepository<T> where T : class, IEntity
   {
-    private DataConnection _dataConnection;
+    private IDataContext _dataConnection;
 
     /// <summary>
     /// Construct repository
     /// </summary>
     /// <param name="dbConnection">Database connection</param>
-    public Repository(DataConnection dataConnection)
+    public Repository(IDataContext dataConnection)
     {
       _dataConnection = dataConnection;
     }

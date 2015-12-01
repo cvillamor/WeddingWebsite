@@ -8,7 +8,7 @@ using WeddingWebsite.Models.DTO;
 
 namespace WeddingWebsite.Models.DBConnectors
 {
-  public class WeddingDb : LinqToDB.Data.DataConnection
+  public class WeddingDb : DataConnection
   {
     public WeddingDb() : base("Wedding") { }
 

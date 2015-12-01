@@ -10,8 +10,8 @@ namespace WeddingWebsite.Models.DTO
   [Table(Name = "twilio_messaging")]
   public class TwilioMessaging : IEntity
   {
-    [PrimaryKey, Identity]
-    public int Id { get; set; }
+    [Column(Name = "phone_number")]
+    public string PhoneNumber { get; set; }
 
     [Column(Name = "date"), NotNull]
     public DateTime Date { get; set; }
