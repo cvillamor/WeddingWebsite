@@ -8,5 +8,6 @@ namespace WeddingWebsite.Models.Repository
 {
   public interface ITwilioMessageRepository
   {
+    bool MaxRequestsNotReached(string phoneNumber);
   }
 }
