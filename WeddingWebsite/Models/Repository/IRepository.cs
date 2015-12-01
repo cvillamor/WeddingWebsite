@@ -11,7 +11,8 @@ namespace WeddingWebsite.Models.Repository
   public interface IRepository<T> where T : class
   {
     void Delete(T entity);
-    void Upsert(T entity);
+    void Insert(T entity);
+    void Update(T entity);
     IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
     IEnumerable<T> GetAll();
   }

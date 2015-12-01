@@ -28,9 +28,14 @@ namespace WeddingWebsite.Models.Repository
       _dataConnection.Delete(entity);
     }
 
-    public void Upsert(T entity)
+    public void Insert(T entity)
     {
-      _dataConnection.InsertOrReplace(entity);
+      _dataConnection.Insert(entity);
+    }
+
+    public void Update(T entity)
+    {
+      _dataConnection.Update(entity);
     }
 
     public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)

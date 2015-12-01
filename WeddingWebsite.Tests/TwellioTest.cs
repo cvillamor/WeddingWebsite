@@ -11,6 +11,7 @@ using System.Linq.Expressions;
 using Xunit;
 using LinqToDB;
 using WeddingWebsite.Models.DTO;
+using WeddingWebsite.Models.Enums;
 
 namespace WeddingWebsite.Tests
 {
@@ -46,7 +47,8 @@ namespace WeddingWebsite.Tests
         using(var db = new WeddingDb())
         {
           Repository<Group> repository = new Repository<Group>(db);
-          var results = repository.Find(m => m.Id == 1);
+          var t = repository.Find(m => m.Id == 3).FirstOrDefault();
+          repository.Delete(t);
 
 
           //var list = d
