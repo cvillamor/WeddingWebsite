@@ -115,6 +115,7 @@
       <DependentUpon>ConnectionStrings.config</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="EmailTest.cs" />
     <Compile Include="PrivateSettings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
