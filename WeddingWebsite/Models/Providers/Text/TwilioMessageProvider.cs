@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Twilio;
+using WeddingWebsite.Models.DataObjects;
 using WeddingWebsite.Models.Enums;
 using WeddingWebsite.Models.Helpers;
 
@@ -11,7 +12,7 @@ namespace WeddingWebsite.Models
   /// <summary>
   /// Main Message Provider
   /// </summary>
-  public class TwilioMessageProvider : IMessageProvider
+  public class TwilioMessageProvider : IMessageProvider<TwilioMessage>
   {
     TwilioRestClient _twilioClient;
 
@@ -39,13 +40,13 @@ namespace WeddingWebsite.Models
     /// <summary>
     /// Send a message
     /// </summary>
-    public bool SendMessage(IMessage message)
+    public bool SendMessage(TwilioMessage message)
     {
       bool status = false;
       var response = _twilioClient.SendMessage(message.From,
                                                message.To,
                                                message.Message,
-                                               new string[] {});
+                                               new string[] { });
 
       //Fail if the status is failed
       if (response.Status != EnumHelper.GetEnumDescription((TwilioStatusEnums)TwilioStatusEnums.FAILED))

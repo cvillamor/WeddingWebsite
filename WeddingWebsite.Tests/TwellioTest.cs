@@ -24,7 +24,7 @@ namespace WeddingWebsite.Tests
       login.AccountSId = ConfigurationManager.AppSettings["AccountSId"];
       login.AuthToken = ConfigurationManager.AppSettings["AccountToken"];
 
-      IMessage message = new TwilioMessage();
+      TwilioMessage message = new TwilioMessage();
       message.From = ConfigurationManager.AppSettings["NumberFrom"];
       message.To = ConfigurationManager.AppSettings["NumberTo"];
       message.Message = "Derp derp derp";

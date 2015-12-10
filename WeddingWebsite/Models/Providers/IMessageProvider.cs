@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WeddingWebsite.Models
 {
-  public interface IMessageProvider
+  public interface IMessageProvider<T> where T : IMessage
   {
-    bool SendMessage(IMessage message);
+    bool SendMessage(T message);
   }
 }
