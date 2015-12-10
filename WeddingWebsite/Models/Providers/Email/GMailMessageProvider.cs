@@ -26,7 +26,6 @@ namespace WeddingWebsite.Models
     /// </summary>
     MailAddress _messageSender;
 
-
     public GmailMessageProvider(IEmailClientBuilder builder, MailAddress messageSender, List<MailAddress> messageRecepients)
     {
       _client = builder.BuildEmailClient();
