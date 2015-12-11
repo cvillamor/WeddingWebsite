@@ -10,7 +10,7 @@ namespace WeddingWebsite.Models.Providers.Email
   public class GmailClientBuilder : IEmailClientBuilder
   {
     private string _password;
-    private string _fromAddress;
+    private string _emailSender;
 
     /// <summary>
     /// Build the builder, pass in both a fromAddress and password to access from Address
@@ -19,7 +19,7 @@ namespace WeddingWebsite.Models.Providers.Email
     /// <param name="fromPassword"></param>
     public GmailClientBuilder(string fromAddress, string password)
     {
-      _fromAddress = fromAddress;
+      _emailSender = fromAddress;
       _password = password;
     }
 
@@ -35,7 +35,7 @@ namespace WeddingWebsite.Models.Providers.Email
         Port = 587,
         EnableSsl = true,
         DeliveryMethod = SmtpDeliveryMethod.Network,
-        Credentials = new NetworkCredential(_fromAddress, _password),
+        Credentials = new NetworkCredential(_emailSender, _password),
         Timeout = 20000
       };
     }
