@@ -10,28 +10,40 @@ using WeddingWebsite.Models.Repository;
 
 namespace WeddingWebsite.Controllers
 {
-    public class ReservationController : Controller
+  public class ReservationController : Controller
+  {
+    /// <summary>
+    /// Message repository
+    /// </summary>
+    private ITwilioMessageRepository _repository {get; set;}
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="repository"></param>
+    public ReservationController(ITwilioMessageRepository repository)
     {
-        // GET: Reservation
-      public ActionResult Index()
-      {
-        return View();
-      }
-
-      /// <summary>
-      /// Enter the number
-      /// </summary>
-      /// <returns></returns>
-      [HttpPost]
-      public ActionResult Number(string id)
-      {
-        using(IDataContext db = new WeddingDb())
-        {
-          var respository = new TwilioMessageRepository(db);
-        }
-        return null;
-      }
-
-       
+      _repository = repository;
     }
+
+    // GET: Reservation
+    [HttpGet]
+    public ActionResult Index()
+    {
+      return View();
+    }
+
+    /// <summary>
+    /// Enter the number
+    /// </summary>
+    /// <returns></returns>
+    [HttpPost]
+    public ActionResult Number(string id)
+    {
+      _repository.MaxRequestsNotReached("12345");
+      return null;
+    }
+
+
+  }
 }
