@@ -8,14 +8,17 @@ using Ninject;
 using System.Reflection;
 using WeddingWebsite.Models.Ninject_Modules;
 using WeddingWebsite.Models;
+using WeddingWebsite.Models.DBConnectors;
 
 namespace WeddingWebsite
 {
   public class MvcApplication : NinjectHttpApplication
   {
 
-    protected void Application_Start()
+    protected override void OnApplicationStarted()
     {
+      base.OnApplicationStarted();
+
       AreaRegistration.RegisterAllAreas();
       GlobalConfiguration.Configure(WebApiConfig.Register);
       FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
