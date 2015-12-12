@@ -29,10 +29,8 @@ namespace WeddingWebsite
     /// <returns>An instanced version of the StandardKernel for Ninject</returns>
     protected override IKernel CreateKernel()
     {
-      var kernel = new StandardKernel(new GmailModule());
-
-      var gmail = kernel.Get<GmailMessageProvider>();
-
+      var kernel = new StandardKernel(new GmailModule(),
+                                      new TwilioModule());
       return kernel;
     }
   }

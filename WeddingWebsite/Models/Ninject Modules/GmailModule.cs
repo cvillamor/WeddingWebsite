@@ -9,18 +9,19 @@ using System.Linq;
 namespace WeddingWebsite.Models.Ninject_Modules
 {
   /// <summary>
-  /// GMail EmailClient Binding
+  /// GMail EmailClient 
   /// </summary>
   public class GmailModule : NinjectModule
   {
     public override void Load()
     {
       //IEmailClientSender
-       Bind<IEmailClientSender>()
-        .To<GmailClientSender>()
-        .WhenInjectedInto<GmailMessageProvider>()
-        .WithConstructorArgument("fromAddress", ConfigurationManager.AppSettings["MessageFrom"])
-        .WithConstructorArgument("password", ConfigurationManager.AppSettings["EmailPassword"]);
+      Bind<IEmailClientSender>()
+       .To<GmailClientSender>()
+       .WhenInjectedInto<GmailMessageProvider>()
+       .WithConstructorArgument("fromAddress", ConfigurationManager.AppSettings["MessageFrom"])
+       .WithConstructorArgument("password", ConfigurationManager.AppSettings["EmailPassword"]);
+        
 
       //IEmailClientRecepients
       //Addresses
@@ -32,7 +33,10 @@ namespace WeddingWebsite.Models.Ninject_Modules
       Bind<IEmailClientRecipients>()
         .To<GmailClientReceiver>()
         .WhenInjectedInto<GmailMessageProvider>()
-        .WithConstructorArgument("addresses", addresses);      
+        .WithConstructorArgument("addresses", addresses);
+
+      //Bind singleton instance of GmailMessageProvider
+      Bind<GmailMessageProvider>().ToSelf().InSingletonScope();
     }
   }
 }
