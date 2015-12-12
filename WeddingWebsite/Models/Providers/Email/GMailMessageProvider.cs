@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -11,6 +12,8 @@ namespace WeddingWebsite.Models
 {
   public class GmailMessageProvider : IMessageProvider<Email>
   {
+    ILog _log = LogManager.GetLogger<GmailMessageProvider>();
+
     /// <summary>
     /// Represents the SMTP client used by email provider
     /// </summary>
@@ -57,9 +60,11 @@ namespace WeddingWebsite.Models
           try
           {
             _client.Send(emailMessage);
+            _log.InfoFormat("Email message sent to: {0} ", recepient.Address);
           }
           catch (Exception ex)
           {
+            _log.ErrorFormat("Email message not sent to {0} error: {1}", recepient.Address, ex.Message);
             success = false;
           }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,8 @@ namespace WeddingWebsite.Models
   /// </summary>
   public class TwilioMessageProvider : IMessageProvider<TwilioMessage>
   {
+    ILog _log = LogManager.GetLogger<TwilioMessageProvider>();
+
     TwilioRestClient _twilioClient;
 
     /// <summary>
@@ -43,14 +46,29 @@ namespace WeddingWebsite.Models
     public bool SendMessage(TwilioMessage message)
     {
       bool status = false;
-      var response = _twilioClient.SendMessage(message.From,
-                                               message.To,
-                                               message.Message,
-                                               new string[] { });
 
-      //Fail if the status is failed
-      if (response.Status != EnumHelper.GetEnumDescription((TwilioStatusEnums)TwilioStatusEnums.FAILED))
-        status = true;
+      try
+      { 
+        var response = _twilioClient.SendMessage(message.From,
+                                                 message.To,
+                                                 message.Message,
+                                                 new string[] { });
+
+        //Fail if the status is failed
+        if (response.Status != EnumHelper.GetEnumDescription((TwilioStatusEnums)TwilioStatusEnums.FAILED))
+        {
+          _log.InfoFormat("Twilio Message sent to: {0}", message.To);
+          status = true;
+        }
+        else
+        {
+          _log.ErrorFormat("Twilio Message sent to {0} failed. Error: {1}", message.To, response.ErrorCode);
+        }
+      }
+      catch(Exception ex)
+      {
+        _log.ErrorFormat("Error sending twilio message to {0}. Error: {1}", message.To, ex.Message);
+      }
 
       return status;
     }
