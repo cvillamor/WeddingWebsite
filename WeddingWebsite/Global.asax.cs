@@ -7,6 +7,7 @@ using Ninject.Web.Common;
 using Ninject;
 using System.Reflection;
 using WeddingWebsite.Models.Ninject_Modules;
+using WeddingWebsite.Models;
 
 namespace WeddingWebsite
 {
@@ -29,7 +30,8 @@ namespace WeddingWebsite
     protected override IKernel CreateKernel()
     {
       var kernel = new StandardKernel(new GmailModule());
-      kernel.Load(Assembly.GetExecutingAssembly());
+
+      var gmail = kernel.Get<GmailMessageProvider>();
 
       return kernel;
     }

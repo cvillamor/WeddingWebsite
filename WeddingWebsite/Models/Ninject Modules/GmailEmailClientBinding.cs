@@ -26,7 +26,8 @@ namespace WeddingWebsite.Models.Ninject_Modules
       //Addresses
       var addresses = ConfigurationManager.AppSettings["MessageTo"]
                         .Split(',')
-                        .Select(m => new MailAddress(m));
+                        .Select(m => new MailAddress(m))
+                        .ToList();
 
       Bind<IEmailClientRecipients>()
         .To<GmailClientReceiver>()
