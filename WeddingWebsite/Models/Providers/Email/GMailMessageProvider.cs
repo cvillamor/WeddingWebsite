@@ -26,10 +26,10 @@ namespace WeddingWebsite.Models
     /// </summary>
     MailAddress _messageSender;
 
-    public GmailMessageProvider(IEmailClientBuilder builder, MailAddress messageSender, List<MailAddress> messageRecepients)
+    public GmailMessageProvider(IEmailClient builder, List<MailAddress> messageRecepients)
     {
       _client = builder.BuildEmailClient();
-      _messageSender = messageSender;
+      _messageSender = builder.EmailSender;
       _messageRecepients = messageRecepients;
     }
 

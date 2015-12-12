@@ -7,10 +7,20 @@ using System.Web;
 
 namespace WeddingWebsite.Models.Providers.Email
 {
-  public class GmailClientBuilder : IEmailClientBuilder
+  public class GmailClientBuilder : IEmailClient
   {
     private string _password;
     private string _emailSender;
+    private MailAddress _sender;
+
+    /// <summary>
+    /// Email sender property used for sending email
+    /// </summary>
+    public MailAddress EmailSender { 
+      get {
+        return _sender;
+      }
+    }
 
     /// <summary>
     /// Build the builder, pass in both a fromAddress and password to access from Address
@@ -21,6 +31,7 @@ namespace WeddingWebsite.Models.Providers.Email
     {
       _emailSender = fromAddress;
       _password = password;
+      _sender = new MailAddress(fromAddress);
     }
 
     /// <summary>
