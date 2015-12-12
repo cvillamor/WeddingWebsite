@@ -29,8 +29,19 @@ namespace WeddingWebsite
     /// <returns>An instanced version of the StandardKernel for Ninject</returns>
     protected override IKernel CreateKernel()
     {
-      var kernel = new StandardKernel(new GmailModule(),
-                                      new TwilioModule());
+      var kernel = new StandardKernel();
+      
+      //Loads the instance of DB -- creates a singleton DB instance to be injected into all repositories
+      kernel.Load(new DbModule());
+
+      //Messaging Modules
+      kernel.Load(new GmailModule());
+      kernel.Load(new TwilioModule());
+
+      //Repositories
+      kernel.Load(new TwilioRepositoryModule(kernel.Get<WeddingDb>()));
+
+
       return kernel;
     }
   }
