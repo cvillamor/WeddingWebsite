@@ -7,7 +7,7 @@ using System.Web;
 
 namespace WeddingWebsite.Models.Providers.Email
 {
-  public class GmailClientBuilder : IEmailClient
+  public class GmailClientSender : IEmailClientSender
   {
     private string _password;
     private string _emailSender;
@@ -27,7 +27,7 @@ namespace WeddingWebsite.Models.Providers.Email
     /// </summary>
     /// <param name="fromAddress"></param>
     /// <param name="fromPassword"></param>
-    public GmailClientBuilder(string fromAddress, string password)
+    public GmailClientSender(string fromAddress, string password)
     {
       _emailSender = fromAddress;
       _password = password;

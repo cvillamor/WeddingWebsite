@@ -19,18 +19,18 @@ namespace WeddingWebsite.Models
     /// <summary>
     /// Represents the recepients receiving the email
     /// </summary>
-    List<MailAddress> _messageRecepients;
+    List<MailAddress> _messageRecipients;
 
     /// <summary>
     /// Represents the 
     /// </summary>
     MailAddress _messageSender;
 
-    public GmailMessageProvider(IEmailClient builder, List<MailAddress> messageRecepients)
+    public GmailMessageProvider(IEmailClientSender sender, IEmailClientRecipients recipients)
     {
-      _client = builder.BuildEmailClient();
-      _messageSender = builder.EmailSender;
-      _messageRecepients = messageRecepients;
+      _client = sender.BuildEmailClient();
+      _messageSender = sender.EmailSender;
+      _messageRecipients = recipients.EmailRecipients;
     }
 
     /// <summary>
@@ -42,10 +42,10 @@ namespace WeddingWebsite.Models
     {
       bool success = true;
 
-      if (_messageRecepients == null)
+      if (_messageRecipients == null)
         return !success;
 
-      foreach (var recepient in _messageRecepients)
+      foreach (var recepient in _messageRecipients)
       {
         using (var emailMessage = new MailMessage(_messageSender, recepient)
         {

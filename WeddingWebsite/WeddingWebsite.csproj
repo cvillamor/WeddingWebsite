@@ -225,13 +225,15 @@
       <DependentUpon>Wedding.MySql.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ninject Modules\NinjectBindings.cs" />
-    <Compile Include="Models\Providers\Email\GmailClientBuilder.cs" />
+    <Compile Include="Models\Providers\Email\GmailClientReceiver.cs" />
+    <Compile Include="Models\Providers\Email\GmailClientSender.cs" />
     <Compile Include="Models\Providers\Email\GmailMessageProvider.cs" />
     <Compile Include="Models\Enums\RSVPStatusEnums.cs" />
     <Compile Include="Models\Enums\TwilioStatusEnums.cs" />
     <Compile Include="Models\Helpers\EnumHelper.cs" />
+    <Compile Include="Models\Providers\Email\IEmailClientRecipients.cs" />
     <Compile Include="Models\Providers\IMessageProvider.cs" />
-    <Compile Include="Models\Providers\Email\IEmailClientBuilder.cs" />
+    <Compile Include="Models\Providers\Email\IEmailClientSender.cs" />
     <Compile Include="Models\Repository\IRepository.cs" />
     <Compile Include="Models\Repository\ITwilioMessageRepository.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
@@ -271,6 +273,7 @@
     <Content Include="LinqToDB.Templates\ReadMe.LinqToDB.md" />
     <Content Include="LinqToDB.Templates\T4Model.ttinclude" />
     <Content Include="LinqToDB.Templates\Validation.ttinclude" />
+    <Content Include="PrivateSettings.config" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />

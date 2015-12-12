@@ -10,7 +10,7 @@ namespace WeddingWebsite.Models.Providers
   /// <summary>
   /// Builds the SMTP object
   /// </summary>
-  public interface IEmailClient
+  public interface IEmailClientSender
   {
     MailAddress EmailSender { get; }
     SmtpClient BuildEmailClient();
