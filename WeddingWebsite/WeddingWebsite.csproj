@@ -124,6 +124,9 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.4.1.2\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -236,7 +239,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Wedding.MySql.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ninject Modules\NinjectBindings.cs" />
+    <Compile Include="Models\Ninject Modules\GmailEmailClientBinding.cs" />
     <Compile Include="Models\Providers\Email\GmailClientReceiver.cs" />
     <Compile Include="Models\Providers\Email\GmailClientSender.cs" />
     <Compile Include="Models\Providers\Email\GmailMessageProvider.cs" />
