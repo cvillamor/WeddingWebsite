@@ -10,6 +10,10 @@ using LinqToDB;
 
 namespace WeddingWebsite.Models.Repository
 {
+  /// <summary>
+  /// Repository for datacontext class
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
   public class Repository<T> : IRepository<T> where T : class, IEntity
   {
     private IDataContext _dataConnection;
