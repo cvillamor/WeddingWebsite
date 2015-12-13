@@ -246,6 +246,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Wedding.MySql.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Helpers\SixDigitCodeGenerator.cs" />
+    <Compile Include="Models\Helpers\ICodeGenerator.cs" />
+    <Compile Include="Models\Ninject Modules\CodeGeneratorModule.cs" />
     <Compile Include="Models\Ninject Modules\DbModule.cs" />
     <Compile Include="Models\Ninject Modules\GmailModule.cs" />
     <Compile Include="Models\Ninject Modules\TwilioModule.cs" />
