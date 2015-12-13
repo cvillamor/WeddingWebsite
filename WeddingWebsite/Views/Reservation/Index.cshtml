@@ -1,7 +1,17 @@
-﻿
+﻿@model WeddingWebsite.Models.DomainModels.Reservation
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+@using (Html.BeginForm("Number", "Reservation", FormMethod.Post))
+{
+  @Html.TextBoxFor(model => model.Number)
+  <input type="submit" />
+  <p>
+    Please enter your cell-phone number. (no dashes or area code ex: 9999999999)
+  </p>
+  <p>
+    (Note: this will be the person on the invite who is in frequent contact with bride and groom)
+  </p>
+  
+}
