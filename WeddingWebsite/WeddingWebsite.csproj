@@ -249,6 +249,7 @@
     <Compile Include="Models\DomainModels\Reservation.cs" />
     <Compile Include="Models\Helpers\SixDigitCodeGenerator.cs" />
     <Compile Include="Models\Helpers\ICodeGenerator.cs" />
+    <Compile Include="Models\Helpers\NumberValidator.cs" />
     <Compile Include="Models\Ninject Modules\CodeGeneratorModule.cs" />
     <Compile Include="Models\Ninject Modules\DbModule.cs" />
     <Compile Include="Models\Ninject Modules\GmailModule.cs" />
