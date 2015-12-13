@@ -259,8 +259,10 @@
     <Compile Include="Models\Providers\Email\IEmailClientRecipients.cs" />
     <Compile Include="Models\Providers\IMessageProvider.cs" />
     <Compile Include="Models\Providers\Email\IEmailClientSender.cs" />
+    <Compile Include="Models\Repository\IPersonRepository.cs" />
     <Compile Include="Models\Repository\IRepository.cs" />
     <Compile Include="Models\Repository\ITwilioMessageRepository.cs" />
+    <Compile Include="Models\Repository\PersonRepository.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
     <Compile Include="Models\Repository\TwilioMessageRepository.cs" />
     <Compile Include="Models\Providers\Text\TwilioMessageProvider.cs" />
