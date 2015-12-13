@@ -43,8 +43,11 @@ namespace WeddingWebsite
       kernel.Load(new GmailModule());
       kernel.Load(new TwilioModule());
 
+      //Crypto
+      kernel.Load(new CodeGeneratorModule());
+
       //Repositories
-      kernel.Load(new TwilioRepositoryModule(kernel.Get<WeddingDb>()));
+      kernel.Load(new RepositoryModule(kernel.Get<WeddingDb>()));
 
 
       return kernel;

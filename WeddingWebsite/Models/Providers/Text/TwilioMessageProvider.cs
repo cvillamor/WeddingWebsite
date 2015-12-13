@@ -19,6 +19,8 @@ namespace WeddingWebsite.Models
 
     TwilioRestClient _twilioClient;
 
+    private string _numberFrom;
+
     /// <summary>
     /// Access the Twilio Client
     /// </summary>
@@ -35,9 +37,10 @@ namespace WeddingWebsite.Models
     /// </summary>
     /// <param name="sId"></param>
     /// <param name="authToken"></param>
-    public TwilioMessageProvider(string sId, string authToken)
+    public TwilioMessageProvider(string sId, string authToken, string numberFrom)
     {
       _twilioClient = new TwilioRestClient(sId, authToken);
+      _numberFrom = numberFrom;
     }
 
     /// <summary>
@@ -49,7 +52,7 @@ namespace WeddingWebsite.Models
 
       try
       { 
-        var response = _twilioClient.SendMessage(message.From,
+        var response = _twilioClient.SendMessage(_numberFrom,
                                                  message.To,
                                                  message.Message,
                                                  new string[] { });

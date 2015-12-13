@@ -254,7 +254,7 @@
     <Compile Include="Models\Ninject Modules\GmailModule.cs" />
     <Compile Include="Models\Ninject Factory\NinjectControllerFactory.cs" />
     <Compile Include="Models\Ninject Modules\TwilioModule.cs" />
-    <Compile Include="Models\Ninject Modules\TwilioRepositoryModule.cs" />
+    <Compile Include="Models\Ninject Modules\RepositoryModule.cs" />
     <Compile Include="Models\Providers\Email\GmailClientReceiver.cs" />
     <Compile Include="Models\Providers\Email\GmailClientSender.cs" />
     <Compile Include="Models\Providers\Email\GmailMessageProvider.cs" />
@@ -316,8 +316,6 @@
     <Content Include="Views\Home\_Home.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
@@ -336,7 +334,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
-    <Folder Include="Models\ExtensionMethods\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

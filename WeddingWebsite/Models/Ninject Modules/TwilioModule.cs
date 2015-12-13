@@ -18,12 +18,12 @@ namespace WeddingWebsite.Models.Ninject_Modules
     /// </summary>
     public override void Load()
     {
-      //Ensure TwilioMessageProvider remains a singleton
-      Bind<TwilioMessageProvider>()
-        .ToSelf()
+      Bind<IMessageProvider<TwilioMessage>>()
+        .To<TwilioMessageProvider>()
         .InSingletonScope()
         .WithConstructorArgument("sId", ConfigurationManager.AppSettings["AccountSId"])
-        .WithConstructorArgument("authToken", ConfigurationManager.AppSettings["AccountToken"]);;
+        .WithConstructorArgument("authToken", ConfigurationManager.AppSettings["AccountToken"])
+        .WithConstructorArgument("numberFrom", ConfigurationManager.AppSettings["NumberFrom"]);
 
     }
   }

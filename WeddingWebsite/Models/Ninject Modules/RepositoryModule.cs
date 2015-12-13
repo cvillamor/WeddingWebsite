@@ -11,7 +11,7 @@ namespace WeddingWebsite.Models.Ninject_Modules
   /// <summary>
   /// Handles all calls to for the TwilioRepository
   /// </summary>
-  public class TwilioRepositoryModule : NinjectModule
+  public class RepositoryModule : NinjectModule
   {
     private IDataContext _dataContext;
 
@@ -19,7 +19,7 @@ namespace WeddingWebsite.Models.Ninject_Modules
     /// The data context for the TwilioRepository to be used
     /// </summary>
     /// <param name="context"></param>
-    public TwilioRepositoryModule(IDataContext context)
+    public RepositoryModule(IDataContext context)
     {
       _dataContext = context;
     }
@@ -31,6 +31,11 @@ namespace WeddingWebsite.Models.Ninject_Modules
     {
       Bind<ITwilioMessageRepository>()
         .To<TwilioMessageRepository>()
+        .InSingletonScope()
+        .WithConstructorArgument("IDataContext", _dataContext);
+
+      Bind<IPersonRepository>()
+        .To<PersonRepository>()
         .InSingletonScope()
         .WithConstructorArgument("IDataContext", _dataContext);
    
