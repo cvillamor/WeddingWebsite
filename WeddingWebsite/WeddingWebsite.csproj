@@ -252,6 +252,7 @@
     <Compile Include="Models\Ninject Modules\CodeGeneratorModule.cs" />
     <Compile Include="Models\Ninject Modules\DbModule.cs" />
     <Compile Include="Models\Ninject Modules\GmailModule.cs" />
+    <Compile Include="Models\Ninject Factory\NinjectControllerFactory.cs" />
     <Compile Include="Models\Ninject Modules\TwilioModule.cs" />
     <Compile Include="Models\Ninject Modules\TwilioRepositoryModule.cs" />
     <Compile Include="Models\Providers\Email\GmailClientReceiver.cs" />
