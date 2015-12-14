@@ -12,5 +12,6 @@ namespace WeddingWebsite.Models.Repository
   {
     bool MaxRequestsNotReached(string phoneNumber);
     bool AddRequest(TwilioMessaging twilioMessage);
+    bool CodeEqualsLastRequest(TwilioMessaging twilioMessage);
   }
 }

@@ -48,5 +48,33 @@ namespace WeddingWebsite.Models.Repository
 
       return success;
     }
+
+    /// <summary>
+    /// Check twilio message to database
+    /// </summary>
+    /// <param name="message"></param>
+    /// <returns></returns>
+    public bool CodeEqualsLastRequest(TwilioMessaging message)
+    {
+      bool success = false;
+
+      try
+      {
+        //Get a list of code requests in the last 3 minutes
+        var list = this.Find(m => m.PhoneNumber == message.PhoneNumber && m.Date > DateTime.Now.AddMinutes(-3)).ToList();
+
+        if (list.Count == 0)
+          success = false;
+
+        if (list.Select(m => m.Code).Contains(message.Code))
+          success = true;
+      }
+      catch(Exception ex)
+      {
+        _log.ErrorFormat("Error attempting to get code from table. {0}", ex.Message);
+      }
+
+      return success;
+    }
   }
 }
