@@ -42,5 +42,55 @@ namespace WeddingWebsite.Models.Repository
 
       return success;
     }
+
+    /// <summary>
+    /// Gets the group Id by phone number
+    /// </summary>
+    /// <param name="phoneNumber"></param>
+    /// <returns></returns>
+    public int GetGroupIdByPhoneNumber(string phoneNumber)
+    {
+      int groupId = 0;
+
+      try
+      {
+        var result = this.Find(m => m.PhoneNumber == phoneNumber).FirstOrDefault();
+        
+        if (result != null)
+        {
+          groupId = result.GroupId;
+        }
+      }
+      catch(Exception ex)
+      {
+        _log.ErrorFormat("There was an error trying to access PersonTable {0}", ex.Message);
+      }
+
+      return groupId;
+    }
+
+    /// <summary>
+    /// Return back a list of people within this group
+    /// </summary>
+    /// <param name="groupId">GroupId in question</param>
+    /// <returns>List of people</returns>
+    public IEnumerable<Person> GetPersonListByGroupId(int groupId)
+    {
+      List<Person> personList = new List<Person>();
+
+      if (groupId == 0)
+        return personList;
+
+      try
+      {
+        personList = this.Find(m => m.GroupId == groupId).ToList();
+      }
+      catch(Exception ex)
+      {
+        _log.ErrorFormat("There was an error trying to access PersonTable {0}", ex.Message);
+      }
+
+      return personList;
+    }
   }
 }
