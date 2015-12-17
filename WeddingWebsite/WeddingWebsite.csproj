@@ -247,6 +247,7 @@
       <DependentUpon>Wedding.MySql.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DomainModels\Reservation.cs" />
+    <Compile Include="Models\DomainModels\PersonDomain.cs" />
     <Compile Include="Models\Helpers\SixDigitCodeGenerator.cs" />
     <Compile Include="Models\Helpers\ICodeGenerator.cs" />
     <Compile Include="Models\Helpers\NumberValidator.cs" />
