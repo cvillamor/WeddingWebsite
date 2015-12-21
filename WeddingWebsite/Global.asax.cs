@@ -9,6 +9,7 @@ using System.Reflection;
 using WeddingWebsite.Models.Ninject_Modules;
 using WeddingWebsite.Models;
 using WeddingWebsite.Models.DBConnectors;
+using WeddingWebsite.App_Start;
 
 namespace WeddingWebsite
 {
@@ -24,6 +25,7 @@ namespace WeddingWebsite
       FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
       RouteConfig.RegisterRoutes(RouteTable.Routes);
       BundleConfig.RegisterBundles(BundleTable.Bundles);
+      AutoMapperConfig.RegisterMappings();
 
       ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(Kernel));
     }
